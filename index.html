@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Hospital Token System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<p>SMART CARE • SIMPLE QUEUES</p>
+<h1>Smart Hospital Token System</h1>
+<p>Less waiting. Better care.</p>
+<small>Demo project · Data is saved in this browser only.</small>
+</header>
+<main>
+<section class="panel">
+<h2>01 Patient Registration</h2><p>Get a department-specific token.</p>
+<form id="registrationForm">
+<label for="patientName">Patient name</label><input id="patientName" required maxlength="60" placeholder="Enter patient name">
+<label for="patientDepartment">Department</label>
+<select id="patientDepartment"><option>General</option><option>Dental</option><option>Eye</option></select>
+<button type="submit">Get My Token</button>
+</form><p id="registrationMessage" class="message"></p>
+</section>
+<section class="panel">
+<h2>02 Check Your Token</h2><p>See your turn and current status.</p>
+<form id="statusForm">
+<label for="statusDepartment">Department</label>
+<select id="statusDepartment"><option>General</option><option>Dental</option><option>Eye</option></select>
+<label for="statusToken">Token number</label><input id="statusToken" type="number" min="1" required placeholder="Enter token number">
+<button type="submit">Check Status</button>
+</form>
+<div id="tokenDetails" class="result">Enter your department and token number to check status.</div>
+<div class="stats">
+<div><span>Currently serving</span><strong id="currentlyServing">None</strong></div>
+<div><span>Patients ahead</span><strong id="patientsAhead">0</strong></div>
+<div><span>Estimated wait</span><strong id="estimatedWait">0 minutes</strong></div>
+</div>
+</section>
+<section class="panel">
+<h2>03 Department Queue</h2><p>View patients in one department.</p>
+<label for="queueDepartment">Choose department</label>
+<select id="queueDepartment"><option>General</option><option>Dental</option><option>Eye</option></select>
+<div class="table-wrap"><table><thead><tr><th>Token</th><th>Patient</th><th>Status</th></tr></thead><tbody id="queueBody"></tbody></table></div>
+</section>
+<section class="panel">
+<h2>04 Receptionist Panel</h2><p>Manage patient consultation status.</p>
+<label for="staffDepartment">Manage department</label>
+<select id="staffDepartment"><option>General</option><option>Dental</option><option>Eye</option></select>
+<div class="buttons">
+<button id="callNext" type="button">Call Next Patient</button>
+<button id="startConsultation" type="button" class="secondary">Start Consultation</button>
+<button id="completeConsultation" type="button" class="secondary">Complete Consultation</button>
+</div>
+<p id="staffStatus" class="message">Choose a department.</p>
+<button id="resetDemo" type="button" class="danger">Reset Demo / Clear All Patients</button>
+</section>
+</main>
+<section class="notice"><h2>How the estimate works</h2><p>Each patient ahead is estimated to take about 10 minutes. Actual waiting time depends on the hospital and doctor.</p></section>
+<footer>Smart Hospital Token System · Student project prototype</footer>
+<script src="script.js"></script>
+</body></html>
